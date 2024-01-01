@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  padding: 50px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+}
+
+.container input[type="text"],
+.container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+}
+
+.container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #e47d81;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.container button:hover {
+  background-color: hsl(224, 52%, 72%);
+  cursor: pointer;
+}
+
+.container input[type="text"]::placeholder,
+.container input[type="password"]::placeholder {
+  color: #aaaaaa;
+}
+h1{
+  margin-left: 169px;
+  font-family:monospace;
+  font-size: 35px;
+}
+
+</style>
+</head>
+<body>
+    <form method="post" action="/users/add">  
+  <div class="container">
+    <div>
+      <h1>Add User</h1>
+    </div>
+   Name :
+    <input type="text" placeholder="USER"  name="NAME" value="<%= NAME%>">
+   Password :
+    <input type="password" placeholder="PASSWORD" name="PASS"  value="<%= PASS%>">
+    <button>Add User</button>
+</form>
+  </div>
+</body>
+</html>

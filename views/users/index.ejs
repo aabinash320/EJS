@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  position: relative;
+}
+
+.add-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+table {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.link {
+  padding: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #333333;
+  font-family: Arial, sans-serif;
+}
+
+.link:hover {
+  color: #ff767d;
+}
+
+.action-links {
+  display: flex;
+}
+
+.action-links > a {
+  margin-right: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-links > a:hover {
+  background-color: #45a049;
+}
+
+.add-button-link {
+  padding: 5px 10px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button-link:hover {
+  background-color: #45a049;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.table-container {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <a href="/users/add" class="add-button-link">Add user</a>
+  </div>
+
+  <% if(data.length) { %>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Password</th>
+          <th>Action</th>
+        </tr>
+        <% for (var i = 0; i < data.length; i++) { %>
+          <tr>
+            <td><%= (i+1) %></td>
+            <td><%= data[i].NAME %></td>
+            <td><%= data[i].PASS %></td>
+            <td class="action-links">
+              <a href="/users/edit/<%= data[i].ID%>" class="edit-link">Edit</a>
+              <a href="/users/delete/<%=data[i].ID%>" class="delete-link" onclick="return confirm('I think you want to delete this user')">Delete</a>
+            </td>
+          </tr>
+        <% } %>
+      
+  <% } else { %>
+    <p class="text-center">No users found!</p>
+  <% } %>
+</table>
+</div>
+</body>
+</html>
